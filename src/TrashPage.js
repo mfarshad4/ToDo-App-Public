@@ -54,7 +54,7 @@ export default class TrashPage extends React.Component {
                             <th>Text</th>
                             <th>Due Date</th>
                             <th>Actions</th>
-                        </tr>
+                        </tr> 
                     </thead>
                     <tbody>
                         {
