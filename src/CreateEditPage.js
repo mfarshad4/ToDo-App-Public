@@ -73,7 +73,7 @@ export default class CreateEditPage extends React.Component {
 
                     </Row>
                     <Button className="text-center" variant="primary" onClick={this.setTodo}>
-                        {window.location.href.indexOf('?') > -1 ? 'Edit' : 'Create'}
+                        {window.location.href.indexOf('?') > -1 ? 'Update' : 'Create'}
                     </Button>
                 </Form>
             </div>
