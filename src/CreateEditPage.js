@@ -44,6 +44,7 @@ export default class CreateEditPage extends React.Component {
         } else {
             window.localStorage.setItem(Math.random(), this.state.name + "," + this.state.dueDate + "," + this.state.completedDate + ",true,false");
             alert("TO DO IS SET");
+            window.location = '/home';
         }
 
     }

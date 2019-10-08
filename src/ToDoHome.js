@@ -60,6 +60,7 @@ export default class ToDoHome extends React.Component {
         const { allToDos } = this.state;
         const index = allToDos.findIndex(x => x.key === key);
         allToDos.splice(index, 1);
+        this.setState({ allToDos });
     }
 
     componentDidMount() {
