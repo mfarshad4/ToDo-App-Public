@@ -10,6 +10,22 @@ export default class CompletedPages extends React.Component {
         };
     }
 
+    pendingToDo = (key) => {
+        const item = localStorage.getItem(key);
+        const itemParts = item.split(',');
+
+        itemParts[3] = true;
+
+        localStorage.setItem(key, itemParts.toString());
+        alert('TO DO SET TO PENDING');
+
+        const { allToDos } = this.state;
+        const index = allToDos.findIndex(x => x.key === key);
+        allToDos.splice(index, 1);
+
+        this.setState({ allToDos });
+    }
+
     getToDos() {
         var alltodos = [],
             keys = Object.keys(localStorage),
@@ -28,6 +44,7 @@ export default class CompletedPages extends React.Component {
         return alltodos;
 
     }
+
 
     deleteToDo = (key) => {
         const item = localStorage.getItem(key);
@@ -68,13 +85,7 @@ export default class CompletedPages extends React.Component {
                                 <td>{item.dueDate}</td>
                                 <td>{item.completeDate}</td>
                                 <td className="d-flex text-center">
-                                    <Form.Group>
-                                        <Form.Check
-                                            required
-                                            name="pending"
-                                            id="validationFormik0"
-                                        />
-                                    </Form.Group>
+                                    <Button className="ml-3 btn-warning" variant="primary" onClick={() => this.pendingToDo(item.key)}>Pending</Button>
                                     <Button className="ml-3" variant="primary" onClick={() => this.deleteToDo(item.key)}>Delete</Button>
                                 </td>
                             </tr>
